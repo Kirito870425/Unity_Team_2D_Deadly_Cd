@@ -1,36 +1,46 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Player1 : MonoBehaviour
 {
     #region 屬性
-   
+
     public Rigidbody2D rigi;
     [Range(0, 500)]
     public float jump;
     [Range(0, 500)]
     public float Move;
+    public int passfrequency;
 
     public bool isGround;
+    public bool isGround2;
+    public float timeout;
+    private RaycastHit2D hit4;
+    private RaycastHit2D hit5;
     public int[] hit;
 
     #endregion
 
     #region 方法
+
+    #region 跳躍
+
+    /// <summary>跳躍</summary>
     public void PlayerJump()
     {
         // 2射線碰撞物體 2D物理.射線碰撞(起點, 方向 "," 長度, 圖層(比Tag多"物理"判定))
         RaycastHit2D hit1 = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), -transform.up, 0.1f, 1 << 8);
         RaycastHit2D hit2 = Physics2D.Raycast(transform.position + new Vector3(0.3f, -0.5f), -transform.up, 0.1f, 1 << 8);
         RaycastHit2D hit3 = Physics2D.Raycast(transform.position + new Vector3(-0.3f, -0.5f), -transform.up, 0.1f, 1 << 8);
-        RaycastHit2D hit4 = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), -transform.right, 0.1f, 1 << 8);//左
-        RaycastHit2D hit5 = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), transform.right, 0.1f, 1 << 8);//右
+        hit4 = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), -transform.right, 0.1f, 1 << 8);//左
+        hit5 = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), transform.right, 0.1f, 1 << 8);//右
 
         bool playerjump = Input.GetKeyDown(KeyCode.W);
 
 
-        if (hit1 || hit2 || hit3 || hit4 || hit5)
+        if (hit1 || hit2 || hit3)
             isGround = true;
         else
             isGround = false;
@@ -44,6 +54,11 @@ public class Player1 : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region 移動
+
+    /// <summary>移動</summary>
     public void PlayMove()
     {
         bool playeLeftMove = Input.GetKey(KeyCode.A);
@@ -60,7 +75,31 @@ public class Player1 : MonoBehaviour
     }
     #endregion
 
+    #endregion
+
     #region 事件
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "過關區域")
+        {
+            passfrequency++;
+        }
+        else if (hit4 || hit5)
+        {
+            isGround2 = false;
+            if (!isGround2)
+            {
+                timeout += Time.deltaTime;
+                print(timeout);
+                if (timeout >= 1)
+                {
+                    isGround2 = true;
+                }
+            }
+        }
+    }
+    #region 畫線
 
     private void OnDrawGizmos()
     {
@@ -73,12 +112,10 @@ public class Player1 : MonoBehaviour
         Gizmos.DrawRay(transform.position + new Vector3(0.5f, 0), transform.right * 0.1f);
     }
 
-   
+    #endregion
 
-    private void Start()
-    {
 
-    }
+
 
     private void Update()
     {

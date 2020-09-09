@@ -33,6 +33,6 @@ public class Props : MonoBehaviour
 
     private void Start()
     {
-        propbg.gameObject.SetActive(true);
+        //propbg.gameObject.SetActive(true);
     }
 }

@@ -11,6 +11,7 @@ public class Player2 : MonoBehaviour
     public float jump;
     [Range(0, 500)]
     public float Move;
+    public int passfrequency;
 
     public bool isGround;
     public int[] hit;
@@ -61,6 +62,14 @@ public class Player2 : MonoBehaviour
     #endregion
 
     #region 事件
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "過關區域")
+        {
+            passfrequency++;
+        }
+    }
 
     private void OnDrawGizmos()
     {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class GameManagement : MonoBehaviour
@@ -7,7 +8,14 @@ public class GameManagement : MonoBehaviour
     #region 欄位
 
     public GameObject passimage;
-    public Text clock,victorytext;
+    public GameObject victoryimage;
+    public Text clock;
+    public Image player1point;
+    public Image player2point;
+
+    public AudioSource m_audioSource;
+    public AudioClip jumpclip;
+    public AudioClip jumpclip2;
 
     public Player1 player1Script;
     public Player2 player2Script;
@@ -25,21 +33,44 @@ public class GameManagement : MonoBehaviour
 
     public void Dead()
     {
-        print("死亡");
+        //print("死亡");
+        PlayerStop();
     }
 
     public void Victory()
     {
-        if (player1Script.passfrequency >=5)
+        
+        if (player1Script.passfrequency >=1)
+        {
+            PlayerStop();
+            passimage.SetActive(true);
+            player1point.fillAmount = 1;
+        }/*
+        else if (player2Script.passfrequency >=1)
         {
             passimage.SetActive(true);
-            victorytext.text = "玩家一贏了";
-        }
-        else if (player2Script.passfrequency >=5)
+        }*/
+    }
+    public void Next()
+    {
+        float point = player1point.fillAmount;
+        if (point == 1)
         {
-            passimage.SetActive(true);
-            victorytext.text = "玩家二贏了";
+            victoryimage.SetActive(true);
         }
+    }
+    public void PlayerStop()
+    {
+        player1Script.jump = 0;
+        player1Script.Move = 0;
+    }
+    public void Reloding()
+    {
+        SceneManager.LoadScene("遊戲場景");
+    }
+    public void Back()
+    {
+        SceneManager.LoadScene("選單");
     }
 
     #endregion

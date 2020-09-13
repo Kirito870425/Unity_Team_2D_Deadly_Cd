@@ -17,6 +17,7 @@ public class Player1 : MonoBehaviour
     public bool isGround;
     public bool isGround2;
     public float timeout;
+    public GameManagement m_gamemanagement;
     private RaycastHit2D hit4;
     private RaycastHit2D hit5;
     public int[] hit;
@@ -50,7 +51,31 @@ public class Player1 : MonoBehaviour
             if (playerjump)
             {
                 rigi.AddForce(new Vector2(0, jump));
+                m_gamemanagement.m_audioSource.PlayOneShot(m_gamemanagement.jumpclip);
             }
+        }
+        else if (hit4 || hit5)
+        {
+            isGround2 = false;                                  //碰到牆壁時先取消跳躍並延遲時間
+            if (!isGround2)
+            {
+                timeout += Time.deltaTime;
+                print(timeout);
+                if (timeout >= 0.5f)
+                {
+                    isGround2 = true;
+                }
+            }
+
+            if (isGround2)
+            {
+                if (playerjump)
+                {
+                    rigi.AddForce(new Vector2(0, jump));
+                    timeout = 0;
+                }
+            }
+
         }
     }
 
@@ -85,19 +110,7 @@ public class Player1 : MonoBehaviour
         {
             passfrequency++;
         }
-        else if (hit4 || hit5)
-        {
-            isGround2 = false;
-            if (!isGround2)
-            {
-                timeout += Time.deltaTime;
-                print(timeout);
-                if (timeout >= 1)
-                {
-                    isGround2 = true;
-                }
-            }
-        }
+
     }
     #region 畫線
 

@@ -39,25 +39,23 @@ public class GameManagement : MonoBehaviour
 
     public void Victory()
     {
-        
-        if (player1Script.passfrequency >=1)
+        if (Player1.passfrequency >=1)
         {
             PlayerStop();
             passimage.SetActive(true);
-            player1point.fillAmount = 1;
-        }/*
-        else if (player2Script.passfrequency >=1)
+        }
+        else if (Player1.passfrequency < 1)
         {
-            passimage.SetActive(true);
-        }*/
+            player1point.fillAmount = 0.1f;
+        }
     }
     public void Next()
     {
-        float point = player1point.fillAmount;
+        /*float point = player1point.fillAmount;
         if (point == 1)
         {
+        }*/
             victoryimage.SetActive(true);
-        }
     }
     public void PlayerStop()
     {

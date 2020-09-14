@@ -12,15 +12,16 @@ public class Player1 : MonoBehaviour
     public float jump;
     [Range(0, 500)]
     public float Move;
-    public int passfrequency;
+    public static int passfrequency;
 
     public bool isGround;
     public bool isGround2;
     public float timeout;
     public GameManagement m_gamemanagement;
-    private RaycastHit2D hit4;
-    private RaycastHit2D hit5;
-    public int[] hit;
+    private RaycastHit2D[] rhit = new RaycastHit2D[5];
+    private Vector3[] raycast = { new Vector3(0, -0.5f), new Vector3(0.3f, -0.5f), new Vector3(-0.3f, -0.5f),
+                                  new Vector3(-0.5f, 0), new Vector3(0.5f, 0) };
+    private Gizmos[] Ghit = new Gizmos[5];
 
     #endregion
 
@@ -32,16 +33,10 @@ public class Player1 : MonoBehaviour
     public void PlayerJump()
     {
         // 2射線碰撞物體 2D物理.射線碰撞(起點, 方向 "," 長度, 圖層(比Tag多"物理"判定))
-        RaycastHit2D hit1 = Physics2D.Raycast(transform.position + new Vector3(0, -0.5f), -transform.up, 0.1f, 1 << 8);
-        RaycastHit2D hit2 = Physics2D.Raycast(transform.position + new Vector3(0.3f, -0.5f), -transform.up, 0.1f, 1 << 8);
-        RaycastHit2D hit3 = Physics2D.Raycast(transform.position + new Vector3(-0.3f, -0.5f), -transform.up, 0.1f, 1 << 8);
-        hit4 = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0), -transform.right, 0.1f, 1 << 8);//左
-        hit5 = Physics2D.Raycast(transform.position + new Vector3(0.5f, 0), transform.right, 0.1f, 1 << 8);//右
-
+        RaycastHit();
         bool playerjump = Input.GetKeyDown(KeyCode.W);
 
-
-        if (hit1 || hit2 || hit3)
+        if (rhit[0] || rhit[1] || rhit[2])
             isGround = true;
         else
             isGround = false;
@@ -54,7 +49,7 @@ public class Player1 : MonoBehaviour
                 m_gamemanagement.m_audioSource.PlayOneShot(m_gamemanagement.jumpclip);
             }
         }
-        else if (hit4 || hit5)
+        else if (rhit[3] || rhit[4])
         {
             isGround2 = false;                                  //碰到牆壁時先取消跳躍並延遲時間
             if (!isGround2)
@@ -77,6 +72,31 @@ public class Player1 : MonoBehaviour
             }
 
         }
+    }
+    /// <summary>跳躍碰撞判斷</summary>
+    public void RaycastHit()
+    {
+        for (int i = 0; i < rhit.Length; i++)
+        {
+            Vector3 trans = i < 3 ? -transform.up : i == 3 ? -transform.right : transform.right;//三元運算? true: i==3 ?  true : false;
+            rhit[i] = Physics2D.Raycast(transform.position + raycast[i], trans, 0.1f, 1 << 8);
+        }
+
+    }
+
+    #endregion
+    #region 畫線
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        // 2射線碰撞物體 2D物理.射線碰撞(起點, 方向"*"長度)
+        Gizmos.DrawRay(transform.position + new Vector3(0, -0.5f), -transform.up * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(0.3f, -0.5f), -transform.up * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(-0.3f, -0.5f), -transform.up * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(-0.5f, 0), -transform.right * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(0.5f, 0), transform.right * 0.1f);
     }
 
     #endregion
@@ -112,20 +132,6 @@ public class Player1 : MonoBehaviour
         }
 
     }
-    #region 畫線
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        // 2射線碰撞物體 2D物理.射線碰撞(起點, 方向"*"長度)
-        Gizmos.DrawRay(transform.position + new Vector3(0, -0.5f), -transform.up * 0.1f);
-        Gizmos.DrawRay(transform.position + new Vector3(0.3f, -0.5f), -transform.up * 0.1f);
-        Gizmos.DrawRay(transform.position + new Vector3(-0.3f, -0.5f), -transform.up * 0.1f);
-        Gizmos.DrawRay(transform.position + new Vector3(-0.5f, 0), -transform.right * 0.1f);
-        Gizmos.DrawRay(transform.position + new Vector3(0.5f, 0), transform.right * 0.1f);
-    }
-
-    #endregion
 
 
 

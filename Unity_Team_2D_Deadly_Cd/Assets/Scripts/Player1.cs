@@ -2,33 +2,34 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Spine.Unity;
 
 public class Player1 : MonoBehaviour
 {
     #region 屬性
 
-    public Rigidbody2D rigi;
+    private Rigidbody2D rigi;
     [Range(0, 500)]
     public float jump;
     [Range(0, 500)]
     public float Move;
-    public static int passfrequency;
+    public static int passfrequency;    //勝利次數
 
-    public bool isGround;
-    public bool isGround2;
-    public float timeout;
+    public bool isGround;   //地板的
+    public bool isGround2;  //牆壁的
+    public float timeout;   //牆壁延遲時間
     public GameManagement m_gamemanagement;
+    public SkeletonAnimation skeletonAnimation;
+    /// <summary>儲存設計面板上顯示的線條</summary>
     private RaycastHit2D[] rhit = new RaycastHit2D[5];
-    private Vector3[] raycast = { new Vector3(0, -0.5f), new Vector3(0.3f, -0.5f), new Vector3(-0.3f, -0.5f),
-                                  new Vector3(-0.5f, 0), new Vector3(0.5f, 0) };
+    /// <summary>線條碰撞體得距離設定</summary>
+    private Vector3[] raycast = { new Vector3(0, 0.1f), new Vector3(0.3f, 0.22f), new Vector3(-0.3f, 0.15f),
+                                  new Vector3(-0.6f, 0.8f), new Vector3(0.5f, 0.8f)};
     private Gizmos[] Ghit = new Gizmos[5];
 
     #endregion
 
     #region 方法
-
-    #region 跳躍
-
     /// <summary>跳躍</summary>
     public void PlayerJump()
     {
@@ -37,7 +38,10 @@ public class Player1 : MonoBehaviour
         bool playerjump = Input.GetKeyDown(KeyCode.W);
 
         if (rhit[0] || rhit[1] || rhit[2])
+        {
             isGround = true;
+            //skeletonAnimation.AnimationName = "Idle";
+        }
         else
             isGround = false;
 
@@ -45,6 +49,7 @@ public class Player1 : MonoBehaviour
         {
             if (playerjump)
             {
+                skeletonAnimation.AnimationName = "jump";   //上面引用，更改spine的動畫名稱
                 rigi.AddForce(new Vector2(0, jump));
                 m_gamemanagement.m_audioSource.PlayOneShot(m_gamemanagement.jumpclip);
             }
@@ -56,7 +61,7 @@ public class Player1 : MonoBehaviour
             {
                 timeout += Time.deltaTime;
                 print(timeout);
-                if (timeout >= 0.5f)
+                if (timeout >= 0.3f)
                 {
                     isGround2 = true;
                 }
@@ -66,6 +71,7 @@ public class Player1 : MonoBehaviour
             {
                 if (playerjump)
                 {
+                    skeletonAnimation.AnimationName = "jump";
                     rigi.AddForce(new Vector2(0, jump));
                     timeout = 0;
                 }
@@ -84,23 +90,20 @@ public class Player1 : MonoBehaviour
 
     }
 
-    #endregion
-    #region 畫線
-
+    
+    
+    /// <summary>畫線</summary>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
 
         // 2射線碰撞物體 2D物理.射線碰撞(起點, 方向"*"長度)
-        Gizmos.DrawRay(transform.position + new Vector3(0, -0.5f), -transform.up * 0.1f);
-        Gizmos.DrawRay(transform.position + new Vector3(0.3f, -0.5f), -transform.up * 0.1f);
-        Gizmos.DrawRay(transform.position + new Vector3(-0.3f, -0.5f), -transform.up * 0.1f);
-        Gizmos.DrawRay(transform.position + new Vector3(-0.5f, 0), -transform.right * 0.1f);
-        Gizmos.DrawRay(transform.position + new Vector3(0.5f, 0), transform.right * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(0, 0.1f), -transform.up * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(0.3f, 0.22f), -transform.up * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(-0.3f, 0.15f), -transform.up * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(-0.6f, 0.8f), -transform.right * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(0.5f, 0.8f), transform.right * 0.1f);
     }
-
-    #endregion
-
     #region 移動
 
     /// <summary>移動</summary>
@@ -112,11 +115,18 @@ public class Player1 : MonoBehaviour
         if (playerRightMove)
         {
             rigi.AddForce(new Vector2(Move, 0));
+            skeletonAnimation.AnimationName = "Run";
         }
         if (playeLeftMove)
         {
             rigi.AddForce(new Vector2(-Move, 0));
+            skeletonAnimation.AnimationName = "Run";
         }
+    }
+
+    public void AniWinSet()
+    {
+        if(skeletonAnimation.AnimationName == "win") return;
     }
     #endregion
 
@@ -124,23 +134,27 @@ public class Player1 : MonoBehaviour
 
     #region 事件
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.name == "過關區域")
-        {
-            passfrequency++;
-        }
-
-    }
-
-
-
-
     private void Update()
     {
         PlayerJump();
         PlayMove();
     }
+
+    private void Awake()
+    {
+        rigi = GetComponent<Rigidbody2D>();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "過關區域")
+        {
+            skeletonAnimation.loop = false;
+            skeletonAnimation.AnimationName = "win";
+            passfrequency++;
+        }
+
+    }
+
 
     #endregion
 }

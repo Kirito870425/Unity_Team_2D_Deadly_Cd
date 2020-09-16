@@ -33,7 +33,6 @@ public class GameManagement : MonoBehaviour
 
     public void Dead()
     {
-        //print("死亡");
         PlayerStop();
     }
 
@@ -43,11 +42,10 @@ public class GameManagement : MonoBehaviour
         {
             PlayerStop();
             passimage.SetActive(true);
+            player1point.fillAmount += 0.1f;
         }
-        else if (Player1.passfrequency < 1)
-        {
-            player1point.fillAmount = 0.1f;
-        }
+        //else if (Player1.passfrequency < 1)
+        
     }
     public void Next()
     {

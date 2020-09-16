@@ -471,7 +471,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5707a015b3244644bb7b08bb539b19fc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4549,7 +4549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1507042824
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5872,13 +5872,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9e22dc84387a1648a2fb0d4b2d65a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigi: {fileID: 1900948762}
   jump: 400
   Move: 10
   isGround: 0
   isGround2: 0
   timeout: 0
   m_gamemanagement: {fileID: 1900948766}
+  skeletonAnimation: {fileID: 819337984}
 --- !u!50 &1900948762
 Rigidbody2D:
   serializedVersion: 4
@@ -5900,8 +5900,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1900948763
-BoxCollider2D:
+--- !u!70 &1900948763
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5913,19 +5913,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.24, y: 10.24}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.04887271, y: 0.8007612}
+  m_Size: {x: 1.1190572, y: 1.41856}
+  m_Direction: 0
 --- !u!212 &1900948764
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6025,7 +6015,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 58bf9c1235ed9a4468ad32eed6fb0f27, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.08
   m_Pitch: 1
   Loop: 0
   Mute: 0

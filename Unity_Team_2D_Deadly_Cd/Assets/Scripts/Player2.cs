@@ -75,11 +75,11 @@ public class Player2 : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         // 2射線碰撞物體 2D物理.射線碰撞(起點, 方向"*"長度)
-        Gizmos.DrawRay(transform.position + new Vector3(0, -0.5f), -transform.up * 0.1f);
-        Gizmos.DrawRay(transform.position + new Vector3(0.3f, -0.5f), -transform.up * 0.1f);
-        Gizmos.DrawRay(transform.position + new Vector3(-0.3f, -0.5f), -transform.up * 0.1f);
-        Gizmos.DrawRay(transform.position + new Vector3(-0.5f, 0), -transform.right * 0.1f);
-        Gizmos.DrawRay(transform.position + new Vector3(0.5f, 0), transform.right * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(0, 0.05f), -transform.up * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(0.3f, 0.1f), -transform.up * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(-0.3f, 0.1f), -transform.up * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(-0.7f, 0.8f), -transform.right * 0.1f);
+        Gizmos.DrawRay(transform.position + new Vector3(0.7f, 0.8f), transform.right * 0.1f);
     }
 
    

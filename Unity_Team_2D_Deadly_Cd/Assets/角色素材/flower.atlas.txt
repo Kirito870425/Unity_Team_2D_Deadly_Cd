@@ -1,0 +1,83 @@
+
+flower.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Flower_body
+  rotate: false
+  xy: 57, 201
+  size: 29, 48
+  orig: 32, 50
+  offset: 2, 2
+  index: -1
+Flower_foot_l
+  rotate: false
+  xy: 62, 252
+  size: 18, 31
+  orig: 21, 32
+  offset: 1, 1
+  index: -1
+Flower_foot_r
+  rotate: false
+  xy: 62, 285
+  size: 20, 31
+  orig: 20, 32
+  offset: 0, 1
+  index: -1
+Flower_hand_l
+  rotate: true
+  xy: 2, 61
+  size: 61, 36
+  orig: 62, 40
+  offset: 0, 2
+  index: -1
+Flower_hand_r
+  rotate: false
+  xy: 41, 133
+  size: 49, 52
+  orig: 50, 57
+  offset: 1, 4
+  index: -1
+Flower_main
+  rotate: false
+  xy: 2, 318
+  size: 80, 109
+  orig: 88, 118
+  offset: 2, 8
+  index: -1
+Flower_petal01
+  rotate: true
+  xy: 2, 251
+  size: 65, 58
+  orig: 70, 66
+  offset: 0, 5
+  index: -1
+Flower_petal02
+  rotate: true
+  xy: 2, 187
+  size: 62, 53
+  orig: 68, 57
+  offset: 3, 4
+  index: -1
+Flower_petal03
+  rotate: true
+  xy: 2, 2
+  size: 57, 51
+  orig: 66, 68
+  offset: 4, 11
+  index: -1
+Flower_petal04
+  rotate: true
+  xy: 40, 69
+  size: 53, 42
+  orig: 57, 46
+  offset: 2, 3
+  index: -1
+Flower_petal05
+  rotate: true
+  xy: 2, 124
+  size: 61, 37
+  orig: 70, 42
+  offset: 3, 4
+  index: -1

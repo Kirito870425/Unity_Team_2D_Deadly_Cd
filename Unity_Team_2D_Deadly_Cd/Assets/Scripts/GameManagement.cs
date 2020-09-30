@@ -10,13 +10,18 @@ public class GameManagement : MonoBehaviour
     public GameObject passimage;
     public GameObject victoryimage;
     public Text clock;
-    public Image player1point;
-    public Image player2point;
-
+    [Header("吧條區")]
+    public Image player1bar;
+    public Image player2bar;
+    public float p1point;
+    public float p2point;
+    public float p1pointMax = 10;
+    public float p2pointMax = 10;
+    [Header("音效區")]
     public AudioSource m_audioSource;
     public AudioClip jumpclip;
     public AudioClip jumpclip2;
-
+    [Header("程式區")]
     public Player1 player1Script;
     public Player2 player2Script;
 
@@ -38,27 +43,29 @@ public class GameManagement : MonoBehaviour
 
     public void Victory()
     {
-        if (Player1.passfrequency >=1)
+        if (Player1.passfrequency >= 1)
         {
             PlayerStop();
             passimage.SetActive(true);
-            player1point.fillAmount += 0.1f;
+            p1point++;
+            player1bar.fillAmount = p1point / p1pointMax;
         }
-        //else if (Player1.passfrequency < 1)
-        
+        else if (Player2.passfrequency >= 1)
+        {
+            PlayerStop();
+            passimage.SetActive(true);
+            p2point++;
+            player2bar.fillAmount = p2point / p2pointMax;
+        }
     }
     public void Next()
     {
-        /*float point = player1point.fillAmount;
-        if (point == 1)
-        {
-        }*/
-            victoryimage.SetActive(true);
+        victoryimage.SetActive(true);
     }
     public void PlayerStop()
     {
-        player1Script.jump = 0;
-        player1Script.Move = 0;
+        player1Script.enabled = false;
+        player2Script.enabled = false;
     }
     public void Reloding()
     {
@@ -72,6 +79,7 @@ public class GameManagement : MonoBehaviour
     #endregion
 
     #region 事件
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

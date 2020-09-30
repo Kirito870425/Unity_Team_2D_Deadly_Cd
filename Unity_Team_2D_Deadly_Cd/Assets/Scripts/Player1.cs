@@ -20,6 +20,7 @@ public class Player1 : MonoBehaviour
     public float timeout;   //牆壁延遲時間
     public GameManagement m_gamemanagement;
     public SkeletonAnimation skeletonAnimation;
+
     /// <summary>儲存設計面板上顯示的線條</summary>
     private RaycastHit2D[] rhit = new RaycastHit2D[5];
     /// <summary>線條碰撞體得距離設定</summary>
@@ -40,7 +41,7 @@ public class Player1 : MonoBehaviour
         if (rhit[0] || rhit[1] || rhit[2])
         {
             isGround = true;
-            //skeletonAnimation.AnimationName = "Idle";
+            skeletonAnimation.AnimationName = "Idle";
         }
         else
             isGround = false;

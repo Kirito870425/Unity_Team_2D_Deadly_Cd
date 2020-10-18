@@ -1,0 +1,363 @@
+
+flower.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Flower_body
+  rotate: true
+  xy: 814, 391
+  size: 29, 48
+  orig: 32, 50
+  offset: 2, 2
+  index: -1
+Flower_body_dead
+  rotate: false
+  xy: 814, 422
+  size: 29, 48
+  orig: 32, 50
+  offset: 2, 2
+  index: -1
+Flower_foot_l
+  rotate: true
+  xy: 217, 57
+  size: 18, 31
+  orig: 21, 32
+  offset: 1, 1
+  index: -1
+Flower_foot_l_dead
+  rotate: true
+  xy: 184, 57
+  size: 18, 31
+  orig: 21, 32
+  offset: 1, 1
+  index: -1
+Flower_foot_r
+  rotate: true
+  xy: 744, 841
+  size: 20, 31
+  orig: 20, 32
+  offset: 0, 1
+  index: -1
+Flower_foot_r_dead
+  rotate: true
+  xy: 711, 841
+  size: 20, 31
+  orig: 20, 32
+  offset: 0, 1
+  index: -1
+Flower_hand_l
+  rotate: false
+  xy: 798, 294
+  size: 61, 36
+  orig: 62, 40
+  offset: 0, 2
+  index: -1
+Flower_hand_l_dead
+  rotate: false
+  xy: 735, 294
+  size: 61, 36
+  orig: 62, 40
+  offset: 0, 2
+  index: -1
+Flower_hand_r
+  rotate: true
+  xy: 850, 525
+  size: 49, 52
+  orig: 50, 57
+  offset: 1, 4
+  index: -1
+Flower_hand_r_dead
+  rotate: true
+  xy: 796, 525
+  size: 49, 52
+  orig: 50, 57
+  offset: 1, 4
+  index: -1
+Flower_main
+  rotate: true
+  xy: 591, 204
+  size: 80, 109
+  orig: 88, 118
+  offset: 2, 8
+  index: -1
+Flower_main_dead
+  rotate: true
+  xy: 480, 204
+  size: 80, 109
+  orig: 88, 118
+  offset: 2, 8
+  index: -1
+Flower_petal01
+  rotate: true
+  xy: 856, 576
+  size: 65, 58
+  orig: 70, 66
+  offset: 0, 5
+  index: -1
+Flower_petal01_dead
+  rotate: true
+  xy: 796, 576
+  size: 65, 58
+  orig: 70, 66
+  offset: 0, 5
+  index: -1
+Flower_petal02
+  rotate: false
+  xy: 166, 2
+  size: 62, 53
+  orig: 68, 57
+  offset: 3, 4
+  index: -1
+Flower_petal02_dead
+  rotate: false
+  xy: 102, 2
+  size: 62, 53
+  orig: 68, 57
+  offset: 3, 4
+  index: -1
+Flower_petal03
+  rotate: false
+  xy: 813, 472
+  size: 57, 51
+  orig: 66, 68
+  offset: 4, 11
+  index: -1
+Flower_petal03_dead
+  rotate: false
+  xy: 230, 4
+  size: 57, 51
+  orig: 66, 68
+  offset: 4, 11
+  index: -1
+Flower_petal04
+  rotate: false
+  xy: 789, 332
+  size: 53, 42
+  orig: 57, 46
+  offset: 2, 3
+  index: -1
+Flower_petal04_dead
+  rotate: false
+  xy: 734, 332
+  size: 53, 42
+  orig: 57, 46
+  offset: 2, 3
+  index: -1
+Flower_petal05
+  rotate: false
+  xy: 672, 290
+  size: 61, 37
+  orig: 70, 42
+  offset: 3, 4
+  index: -1
+Flower_petal05_dead
+  rotate: false
+  xy: 609, 290
+  size: 61, 37
+  orig: 70, 42
+  offset: 3, 4
+  index: -1
+grass
+  rotate: true
+  xy: 2, 445
+  size: 620, 534
+  orig: 620, 534
+  offset: 0, 0
+  index: -1
+pice
+  rotate: false
+  xy: 2, 1067
+  size: 974, 979
+  orig: 974, 979
+  offset: 0, 0
+  index: -1
+pice1
+  rotate: false
+  xy: 538, 836
+  size: 171, 229
+  orig: 171, 229
+  offset: 0, 0
+  index: -1
+pice10
+  rotate: true
+  xy: 486, 93
+  size: 109, 133
+  orig: 109, 133
+  offset: 0, 0
+  index: -1
+pice11
+  rotate: false
+  xy: 621, 98
+  size: 129, 104
+  orig: 129, 104
+  offset: 0, 0
+  index: -1
+pice12
+  rotate: true
+  xy: 652, 6
+  size: 90, 107
+  orig: 90, 107
+  offset: 0, 0
+  index: -1
+pice13
+  rotate: true
+  xy: 734, 376
+  size: 91, 78
+  orig: 91, 78
+  offset: 0, 0
+  index: -1
+pice14
+  rotate: false
+  xy: 406, 13
+  size: 148, 75
+  orig: 164, 75
+  offset: 0, 0
+  index: -1
+pice15
+  rotate: false
+  xy: 538, 463
+  size: 172, 151
+  orig: 172, 151
+  offset: 0, 0
+  index: -1
+pice16
+  rotate: false
+  xy: 289, 17
+  size: 115, 58
+  orig: 115, 58
+  offset: 0, 0
+  index: -1
+pice17
+  rotate: true
+  xy: 357, 201
+  size: 83, 121
+  orig: 83, 121
+  offset: 0, 0
+  index: -1
+pice18
+  rotate: false
+  xy: 752, 107
+  size: 134, 95
+  orig: 134, 95
+  offset: 0, 0
+  index: -1
+pice19
+  rotate: true
+  xy: 2, 57
+  size: 386, 180
+  orig: 389, 180
+  offset: 0, 0
+  index: -1
+pice2
+  rotate: true
+  xy: 184, 201
+  size: 242, 171
+  orig: 242, 171
+  offset: 0, 0
+  index: -1
+pice20
+  rotate: true
+  xy: 538, 616
+  size: 218, 179
+  orig: 218, 179
+  offset: 0, 0
+  index: -1
+pice21
+  rotate: true
+  xy: 2, 11
+  size: 44, 98
+  orig: 44, 98
+  offset: 0, 0
+  index: -1
+pice22
+  rotate: false
+  xy: 761, 4
+  size: 98, 101
+  orig: 98, 101
+  offset: 0, 0
+  index: -1
+pice3
+  rotate: true
+  xy: 711, 863
+  size: 202, 188
+  orig: 202, 188
+  offset: 0, 0
+  index: -1
+pice4
+  rotate: true
+  xy: 184, 77
+  size: 122, 159
+  orig: 122, 160
+  offset: 0, 0
+  index: -1
+pice5
+  rotate: false
+  xy: 357, 286
+  size: 250, 157
+  orig: 251, 160
+  offset: 1, 0
+  index: -1
+pice6
+  rotate: true
+  xy: 609, 329
+  size: 132, 123
+  orig: 132, 134
+  offset: 0, 0
+  index: -1
+pice7
+  rotate: true
+  xy: 712, 469
+  size: 54, 99
+  orig: 54, 99
+  offset: 0, 0
+  index: -1
+pice8
+  rotate: true
+  xy: 345, 90
+  size: 109, 139
+  orig: 155, 139
+  offset: 46, 0
+  index: -1
+pice9
+  rotate: false
+  xy: 719, 643
+  size: 180, 196
+  orig: 180, 196
+  offset: 0, 0
+  index: -1
+purple_flower
+  rotate: false
+  xy: 556, 4
+  size: 94, 87
+  orig: 96, 91
+  offset: 1, 1
+  index: -1
+red_flower
+  rotate: false
+  xy: 861, 15
+  size: 89, 90
+  orig: 91, 93
+  offset: 1, 1
+  index: -1
+whiiteyellow_flower
+  rotate: true
+  xy: 795, 207
+  size: 85, 80
+  orig: 87, 83
+  offset: 1, 1
+  index: -1
+whitleblue_flower
+  rotate: false
+  xy: 702, 204
+  size: 91, 84
+  orig: 93, 88
+  offset: 1, 1
+  index: -1
+yellow_flower
+  rotate: true
+  xy: 712, 525
+  size: 89, 82
+  orig: 91, 86
+  offset: 1, 1
+  index: -1

@@ -8,13 +8,13 @@ public class GameManagement : MonoBehaviour
     #region 欄位
 
     public GameObject passimage;
-    public GameObject victoryimage;
+    public GameObject nextgameimage;
     public Text clock;
     [Header("吧條區")]
     public Image player1bar;
     public Image player2bar;
-    public float p1point;
-    public float p2point;
+    public static float p1point;
+    public static float p2point;
     public float p1pointMax = 10;
     public float p2pointMax = 10;
     [Header("音效區")]
@@ -29,38 +29,22 @@ public class GameManagement : MonoBehaviour
 
     #region 方法
 
-    public void Pass()
+    public void Pass(float point, float max, Image bar)
     {
-        //print("過關");
-        //記分板，勝利動畫
-        //passfrequency++;
+        PlayerStop();
+        passimage.SetActive(true);
+        point++;
+        bar.fillAmount = point / max;
     }
 
     public void Dead()
     {
         PlayerStop();
     }
-
-    public void Victory()
-    {
-        if (Player1.passfrequency >= 1)
-        {
-            PlayerStop();
-            passimage.SetActive(true);
-            p1point++;
-            player1bar.fillAmount = p1point / p1pointMax;
-        }
-        else if (Player2.passfrequency >= 1)
-        {
-            PlayerStop();
-            passimage.SetActive(true);
-            p2point++;
-            player2bar.fillAmount = p2point / p2pointMax;
-        }
-    }
+    
     public void Next()
     {
-        victoryimage.SetActive(true);
+        nextgameimage.SetActive(true);
     }
     public void PlayerStop()
     {
@@ -69,30 +53,15 @@ public class GameManagement : MonoBehaviour
     }
     public void Reloding()
     {
+        nextgameimage.SetActive(false);
+        passimage.SetActive(false);
         SceneManager.LoadScene("遊戲場景");
     }
     public void Back()
     {
+        nextgameimage.SetActive(false);
+        passimage.SetActive(false);
         SceneManager.LoadScene("選單");
-    }
-
-    #endregion
-
-    #region 事件
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.name == "過關區域")
-            Pass();
-        if (collision.name == "死亡區域")
-            Dead();
-    }
-    private void Update()
-    {
-        //clock.text += Time.deltaTime;
-        //print(clock.text);
-        Victory();
     }
 
     #endregion

@@ -13,7 +13,7 @@ public class Player2 : MonoBehaviour
     public float jump;
     [Range(0, 500)]
     public float Move;
-    public static int passfrequency;    //勝利次數
+    public static int p2passfrequency;    //勝利次數
 
     public bool isGround;   //地板的
     public bool isGround2;  //牆壁的
@@ -52,7 +52,7 @@ public class Player2 : MonoBehaviour
             {
                 skeletonAnimation.AnimationName = "jump";   //上面引用，更改spine的動畫名稱
                 rigi.AddForce(new Vector2(0, jump));
-                //m_gamemanagement.m_audioSource.PlayOneShot(m_gamemanagement.jumpclip);
+                m_gamemanagement.m_audioSource.PlayOneShot(m_gamemanagement.jumpclip);
             }
         }
         else if (rhit[3] || rhit[4])
@@ -61,7 +61,7 @@ public class Player2 : MonoBehaviour
             if (!isGround2)
             {
                 timeout += Time.deltaTime;
-                print(timeout);
+                //print(timeout);
                 if (timeout >= 0.3f)
                 {
                     isGround2 = true;
@@ -150,8 +150,13 @@ public class Player2 : MonoBehaviour
         if (collision.name == "過關區域")
         {
             skeletonAnimation.loop = false;
-            //skeletonAnimation.AnimationName = "win";
-            passfrequency++;
+            skeletonAnimation.AnimationName = "win";
+            p2passfrequency++;
+            m_gamemanagement.Pass(GameManagement.p2point, m_gamemanagement.p2pointMax, m_gamemanagement.player2bar);
+        }
+        if (collision.name == "死亡區域")
+        {
+            skeletonAnimation.AnimationName = "die";
         }
 
     }

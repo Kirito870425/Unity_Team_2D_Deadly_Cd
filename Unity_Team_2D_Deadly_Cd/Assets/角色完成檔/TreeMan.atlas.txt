@@ -1,0 +1,139 @@
+
+TreeMan.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Tree_Eye_l
+  rotate: false
+  xy: 391, 64
+  size: 7, 10
+  orig: 7, 10
+  offset: 0, 0
+  index: -1
+Tree_Eye_r
+  rotate: false
+  xy: 391, 64
+  size: 7, 10
+  orig: 7, 10
+  offset: 0, 0
+  index: -1
+Tree_Eye_l_dead
+  rotate: false
+  xy: 382, 64
+  size: 7, 10
+  orig: 9, 12
+  offset: 1, 1
+  index: -1
+Tree_Eye_r_dead
+  rotate: false
+  xy: 382, 64
+  size: 7, 10
+  orig: 9, 12
+  offset: 1, 1
+  index: -1
+Tree_body
+  rotate: true
+  xy: 125, 2
+  size: 105, 121
+  orig: 116, 129
+  offset: 0, 8
+  index: -1
+Tree_body_dead
+  rotate: true
+  xy: 2, 2
+  size: 105, 121
+  orig: 118, 131
+  offset: 1, 9
+  index: -1
+Tree_foot_l
+  rotate: true
+  xy: 561, 85
+  size: 22, 33
+  orig: 22, 33
+  offset: 0, 0
+  index: -1
+Tree_foot_l_dead
+  rotate: true
+  xy: 526, 85
+  size: 22, 33
+  orig: 24, 35
+  offset: 1, 1
+  index: -1
+Tree_foot_r
+  rotate: true
+  xy: 631, 87
+  size: 20, 33
+  orig: 20, 34
+  offset: 0, 1
+  index: -1
+Tree_foot_r_dead
+  rotate: true
+  xy: 596, 87
+  size: 20, 33
+  orig: 22, 36
+  offset: 1, 2
+  index: -1
+Tree_hand_l
+  rotate: true
+  xy: 315, 61
+  size: 46, 65
+  orig: 46, 65
+  offset: 0, 0
+  index: -1
+Tree_hand_l_dead
+  rotate: true
+  xy: 248, 61
+  size: 46, 65
+  orig: 48, 67
+  offset: 1, 1
+  index: -1
+Tree_hand_lf
+  rotate: true
+  xy: 526, 66
+  size: 17, 14
+  orig: 17, 15
+  offset: 0, 0
+  index: -1
+Tree_hand_lf_dead
+  rotate: false
+  xy: 666, 76
+  size: 17, 14
+  orig: 19, 17
+  offset: 1, 1
+  index: -1
+Tree_hand_r
+  rotate: true
+  xy: 454, 76
+  size: 31, 70
+  orig: 32, 75
+  offset: 1, 5
+  index: -1
+Tree_hand_r_dead
+  rotate: true
+  xy: 382, 76
+  size: 31, 70
+  orig: 34, 77
+  offset: 2, 6
+  index: -1
+Tree_hand_rt
+  rotate: false
+  xy: 685, 92
+  size: 17, 15
+  orig: 17, 17
+  offset: 0, 1
+  index: -1
+Tree_hand_rt_dead
+  rotate: false
+  xy: 666, 92
+  size: 17, 15
+  orig: 19, 19
+  offset: 1, 2
+  index: -1
+tree
+  rotate: false
+  xy: 2, 109
+  size: 684, 725
+  orig: 684, 725
+  offset: 0, 0
+  index: -1

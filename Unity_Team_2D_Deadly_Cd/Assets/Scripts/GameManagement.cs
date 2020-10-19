@@ -29,12 +29,16 @@ public class GameManagement : MonoBehaviour
 
     #region 方法
 
-    public void Pass(float point, float max, Image bar)
+    public void Pass(ref float point, float max, Image bar)
     {
         PlayerStop();
         passimage.SetActive(true);
         point++;
         bar.fillAmount = point / max;
+        if (point == max)
+        {
+            print(123);
+        }
     }
 
     public void Dead()
@@ -51,13 +55,21 @@ public class GameManagement : MonoBehaviour
         player1Script.enabled = false;
         player2Script.enabled = false;
     }
-    public void Reloding()
+    public void ExtendReloding()
+    {
+        Invoke("Reloding", 0.5f);
+    }
+    public void ExtendBack()
+    {
+        Invoke("Back", 0.5f);
+    }
+    private void Reloding()
     {
         nextgameimage.SetActive(false);
         passimage.SetActive(false);
         SceneManager.LoadScene("遊戲場景");
     }
-    public void Back()
+    private void Back()
     {
         nextgameimage.SetActive(false);
         passimage.SetActive(false);

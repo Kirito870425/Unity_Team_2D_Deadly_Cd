@@ -152,7 +152,7 @@ public class Player2 : MonoBehaviour
             skeletonAnimation.loop = false;
             skeletonAnimation.AnimationName = "win";
             p2passfrequency++;
-            m_gamemanagement.Pass(GameManagement.p2point, m_gamemanagement.p2pointMax, m_gamemanagement.player2bar);
+            m_gamemanagement.Pass(ref GameManagement.p2point, m_gamemanagement.p2pointMax, m_gamemanagement.player2bar);
         }
         if (collision.name == "死亡區域")
         {

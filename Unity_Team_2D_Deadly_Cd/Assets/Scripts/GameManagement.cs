@@ -31,30 +31,20 @@ public class GameManagement : MonoBehaviour
 
     public void Pass(ref float point, float max, Image bar)
     {
-        PlayerStop();
-        passimage.SetActive(true);
         point++;
         bar.fillAmount = point / max;
-        if (point == max)
+        if (point >= max)
         {
-            print(123);
+            point = 0;
+            nextgameimage.SetActive(true);
+            passimage.SetActive(false);
         }
     }
+    void Init()
+    {
 
-    public void Dead()
-    {
-        PlayerStop();
     }
-    
-    public void Next()
-    {
-        nextgameimage.SetActive(true);
-    }
-    public void PlayerStop()
-    {
-        player1Script.enabled = false;
-        player2Script.enabled = false;
-    }
+   
     public void ExtendReloding()
     {
         Invoke("Reloding", 0.5f);
@@ -77,4 +67,14 @@ public class GameManagement : MonoBehaviour
     }
 
     #endregion
+    private void Update()
+    {
+        if (player1Script.passbool && player2Script.passbool ||
+            player1Script.deadbool && player2Script.deadbool ||
+            player1Script.passbool && player2Script.deadbool ||
+            player1Script.deadbool && player2Script.passbool)
+        {
+            passimage.SetActive(true);
+        }
+    }
 }

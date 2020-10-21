@@ -7,7 +7,8 @@ using Spine.Unity;
 public class Player1 : MonoBehaviour
 {
     #region 屬性
-
+    public bool passbool;
+    public bool deadbool;
     private bool isGround;   //地板的
     private bool isGround2;  //牆壁的
     private float timeout;   //牆壁延遲時間
@@ -20,7 +21,7 @@ public class Player1 : MonoBehaviour
     public float Move;
     public static int p1passfrequency;    //勝利次數
 
-    public GameManagement m_gamemanagement;
+    private GameManagement m_gamemanagement;
     public SkeletonAnimation skeletonAnimation;
 
     /// <summary>
@@ -140,28 +141,32 @@ public class Player1 : MonoBehaviour
 
     #region 事件
 
+    private void Awake()
+    {
+        rigi = GetComponent<Rigidbody2D>();
+        m_gamemanagement = FindObjectOfType<GameManagement>();
+    }
     private void Update()
     {
         PlayerJump();
         PlayMove();
     }
 
-    private void Awake()
-    {
-        rigi = GetComponent<Rigidbody2D>();
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "過關區域")
+        if (collision.tag == "passbox")
         {
-            skeletonAnimation.loop = false;
+            passbool = true;
             skeletonAnimation.AnimationName = "win";
             p1passfrequency++;
             m_gamemanagement.Pass(ref GameManagement.p1point, m_gamemanagement.p1pointMax, m_gamemanagement.player1bar);
+            Destroy(this);
         }
-        if (collision.name =="死亡區域")
+        if (collision.tag =="deadbox")
         {
+            deadbool = true;
             skeletonAnimation.AnimationName = "die";
+            Destroy(this);
         }
     }
 

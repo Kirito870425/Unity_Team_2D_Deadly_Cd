@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8107058023968823740}
   - component: {fileID: 8107058023968823741}
   - component: {fileID: 8497815293674998468}
-  - component: {fileID: 6987855556872913292}
+  - component: {fileID: 1349261664785294192}
   m_Layer: 8
   m_Name: "\u7BB1\u5B50"
   m_TagString: Untagged
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 81fe525c2c0940048b932052b2e61ffb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -109,7 +109,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 13.49115, y: 13.911766}
   m_EdgeRadius: 0
---- !u!114 &6987855556872913292
+--- !u!114 &1349261664785294192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,4 +123,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oldpos: {x: 0, y: 0, z: 0}
   propbg: {fileID: 0}
-  props: {fileID: 6987855556872913292}
+  props: {fileID: 1349261664785294192}

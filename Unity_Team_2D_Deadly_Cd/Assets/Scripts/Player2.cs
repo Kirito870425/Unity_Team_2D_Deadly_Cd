@@ -15,10 +15,13 @@ public class Player2 : MonoBehaviour
     public float Move;
     public static int p2passfrequency;    //勝利次數
 
-    public bool isGround;   //地板的
-    public bool isGround2;  //牆壁的
+    private bool isGround;   //地板的
+    private bool isGround2;  //牆壁的
+    public bool passbool;
+    public bool deadbool;
+
     public float timeout;   //牆壁延遲時間
-    public GameManagement m_gamemanagement;
+    private GameManagement m_gamemanagement;
     public SkeletonAnimation skeletonAnimation;
 
     /// <summary>儲存設計面板上顯示的線條</summary>
@@ -135,28 +138,32 @@ public class Player2 : MonoBehaviour
 
     #region 事件
 
+    private void Awake()
+    {
+        rigi = GetComponent<Rigidbody2D>();
+        m_gamemanagement = FindObjectOfType<GameManagement>();
+    }
     private void Update()
     {
         PlayerJump();
         PlayMove();
     }
 
-    private void Awake()
-    {
-        rigi = GetComponent<Rigidbody2D>();
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "過關區域")
+        if (collision.tag == "passbox")
         {
-            skeletonAnimation.loop = false;
+            passbool = true;
             skeletonAnimation.AnimationName = "win";
             p2passfrequency++;
             m_gamemanagement.Pass(ref GameManagement.p2point, m_gamemanagement.p2pointMax, m_gamemanagement.player2bar);
+            Destroy(this);
         }
-        if (collision.name == "死亡區域")
+        if (collision.tag == "deadbox")
         {
+            deadbool = true;
             skeletonAnimation.AnimationName = "die";
+            Destroy(this);
         }
 
     }

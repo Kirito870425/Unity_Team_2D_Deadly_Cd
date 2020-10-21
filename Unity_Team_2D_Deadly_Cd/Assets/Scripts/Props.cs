@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Props : MonoBehaviour
 {
     public Vector3 oldpos;
     public GameObject propbg;
     public Props props;
-
+    
     #region 滑鼠功能
 
     private void OnMouseDown()
@@ -29,10 +30,11 @@ public class Props : MonoBehaviour
         Destroy(props);
     }
 
+
     #endregion
 
-    private void Start()
+    private void Awake()
     {
-        //propbg.gameObject.SetActive(true);
+        propbg.gameObject.SetActive(true);
     }
 }

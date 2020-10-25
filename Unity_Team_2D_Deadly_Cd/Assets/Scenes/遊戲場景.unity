@@ -3827,8 +3827,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passimage: {fileID: 354271298}
   nextgameimage: {fileID: 938305389}
-  PropBoxObj: {fileID: 1651790344}
-  PropGearObj: {fileID: 1823618308}
   clock: {fileID: 1813998024}
   player1bar: {fileID: 1072103080}
   player2bar: {fileID: 978186546}
@@ -5171,6 +5169,7 @@ GameObject:
   - component: {fileID: 1651790347}
   - component: {fileID: 1651790348}
   - component: {fileID: 1651790349}
+  - component: {fileID: 1651790350}
   m_Layer: 8
   m_Name: "\u9F52\u8F2A"
   m_TagString: Untagged
@@ -5318,6 +5317,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   propbg: {fileID: 721857678}
+--- !u!58 &1651790350
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651790344}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.07187712, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.3081175
 --- !u!1 &1660253139
 GameObject:
   m_ObjectHideFlags: 0
@@ -6007,12 +6022,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814514021}
   m_CullTransparentMesh: 0
---- !u!1 &1823618308 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8107058023968823738, guid: 0df70265ffd00fd4b8dab7baf22796f0,
-    type: 3}
-  m_PrefabInstance: {fileID: 8107058024459199097}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1900948760
 GameObject:
   m_ObjectHideFlags: 0

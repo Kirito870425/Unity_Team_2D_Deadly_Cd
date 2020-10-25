@@ -74,7 +74,7 @@ public class GameStart : MonoBehaviour
             player1GO.SetActive(true);
             
         }
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.RightShift))
         {
             player2CheckBool = true;
             player2GO.SetActive(true);

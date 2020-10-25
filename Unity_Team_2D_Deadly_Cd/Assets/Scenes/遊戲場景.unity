@@ -3830,8 +3830,8 @@ MonoBehaviour:
   clock: {fileID: 1813998024}
   player1bar: {fileID: 1072103080}
   player2bar: {fileID: 978186546}
-  p1pointMax: 5
-  p2pointMax: 1
+  p1pointMax: 3
+  p2pointMax: 3
   m_audioSource: {fileID: 1900948767}
   jumpclip: {fileID: 8300000, guid: 58bf9c1235ed9a4468ad32eed6fb0f27, type: 3}
   jumpclip2: {fileID: 8300000, guid: 38f086c9ef8c09348b97e0f3557135a9, type: 3}

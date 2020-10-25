@@ -6,6 +6,7 @@ TagManager:
   tags:
   - deadbox
   - passbox
+  - Global
   layers:
   - Default
   - TransparentFX

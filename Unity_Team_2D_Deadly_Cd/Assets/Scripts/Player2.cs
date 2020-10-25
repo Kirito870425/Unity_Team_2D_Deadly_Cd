@@ -55,7 +55,7 @@ public class Player2 : MonoBehaviour
             {
                 skeletonAnimation.AnimationName = "jump";   //上面引用，更改spine的動畫名稱
                 rigi.AddForce(new Vector2(0, jump));
-                m_gamemanagement.m_audioSource.PlayOneShot(m_gamemanagement.jumpclip);
+                m_gamemanagement.m_audioSource.PlayOneShot(m_gamemanagement.jumpclip2);
             }
         }
         else if (rhit[3] || rhit[4])

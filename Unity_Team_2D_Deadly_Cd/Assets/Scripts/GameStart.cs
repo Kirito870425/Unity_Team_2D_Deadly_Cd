@@ -17,14 +17,23 @@ public class GameStart : MonoBehaviour
     public bool player1CheckBool;
     public bool player2CheckBool;
 
-    private void MainGameStart()
+    private void ProlongStart()
     {
         if (player1CheckBool && player2CheckBool)
         {
-            SceneManager.LoadScene("遊戲場景");
+            Invoke("MainGameStart", 1f);
         }
     }
-    public void Exit()
+    public void ProlongExit()
+    {
+        Invoke("Exit", 1f);
+    }
+    private void MainGameStart()
+    {
+        SceneManager.LoadScene("遊戲場景");
+    }
+
+    private void Exit()
     {
         Application.Quit();
     }
@@ -36,43 +45,47 @@ public class GameStart : MonoBehaviour
     }
     private void Change()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (!player2CheckBool)
         {
-            flowerRawImage.texture = flowerTexture;
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                flowerRawImage.texture = flowerTexture;
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                flowerRawImage.texture = treeTexture;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (!player1CheckBool)
         {
-            flowerRawImage.texture = treeTexture;
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                treeRawImage.texture = treeTexture;
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                treeRawImage.texture = flowerTexture;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            treeRawImage.texture = treeTexture;
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            treeRawImage.texture = flowerTexture;
-        }
-        /*if (Input.GetKeyDown(KeyCode.Space) && player1CheckBool)
-        {
-            player1CheckBool = false;
-            player1GO.SetActive(false);
-        }*/
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             player1CheckBool = true;
             player1GO.SetActive(true);
+            
         }
         if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             player2CheckBool = true;
             player2GO.SetActive(true);
+            
         }
     }
 
 
     private void Update()
     {
-        MainGameStart();
+        ProlongStart();
         Change();
     }
 }

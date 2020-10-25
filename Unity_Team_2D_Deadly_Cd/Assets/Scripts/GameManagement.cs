@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class GameManagement : MonoBehaviour
 {
     #region 欄位
-
-    public GameObject passimage;
-    public GameObject nextgameimage;
-    public Text clock;
+    [Header("計分板")]
+    public GameObject passimage = null;
+    [Header("結束畫面")]
+    public GameObject nextgameimage = null;
     [Header("吧條區")]
+    public Text clock;
     public Image player1bar;
     public Image player2bar;
     public static float p1point;
@@ -21,14 +22,19 @@ public class GameManagement : MonoBehaviour
     public AudioSource m_audioSource;
     public AudioClip jumpclip;
     public AudioClip jumpclip2;
-    [Header("程式區")]
-    public Player1 player1Script;
-    public Player2 player2Script;
+
+    private Player1 _player1Script;
+    private Player2 _player2Script;
 
     #endregion
 
     #region 方法
-
+    /// <summary>
+    /// 計算過關分數
+    /// </summary>
+    /// <param name="point">分數</param>
+    /// <param name="max">總分</param>
+    /// <param name="bar">吧條</param>
     public void Pass(ref float point, float max, Image bar)
     {
         point++;
@@ -40,11 +46,7 @@ public class GameManagement : MonoBehaviour
             passimage.SetActive(false);
         }
     }
-    void Init()
-    {
-
-    }
-   
+    
     public void ExtendReloding()
     {
         Invoke("Reloding", 0.5f);
@@ -65,16 +67,24 @@ public class GameManagement : MonoBehaviour
         passimage.SetActive(false);
         SceneManager.LoadScene("選單");
     }
-
-    #endregion
-    private void Update()
+    private void WaitingForClearance()
     {
-        if (player1Script.passbool && player2Script.passbool ||
-            player1Script.deadbool && player2Script.deadbool ||
-            player1Script.passbool && player2Script.deadbool ||
-            player1Script.deadbool && player2Script.passbool)
+        if (_player1Script.passbool && _player2Script.passbool ||
+            _player1Script.deadbool && _player2Script.deadbool ||
+            _player1Script.passbool && _player2Script.deadbool ||
+            _player1Script.deadbool && _player2Script.passbool)
         {
             passimage.SetActive(true);
         }
+    }
+    #endregion
+    private void Awake()
+    {
+        _player1Script = FindObjectOfType<Player1>();
+        _player2Script = FindObjectOfType<Player2>();
+    }
+    private void Update()
+    {
+        WaitingForClearance();
     }
 }

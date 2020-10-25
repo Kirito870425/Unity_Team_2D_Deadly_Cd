@@ -1,26 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PropsBox : MonoBehaviour
 {
-    public SpriteRenderer bgImage;
-    //public Text bgText;
-    public float bgTime = 0;
+    public GameObject test;
+    private Color _test = new Color();
+    private float _tmp = 0;
 
-    private void PropBox()
+    private void Awake()
     {
-        float _overtime = 0;
-        _overtime += Time.deltaTime;
-        if (_overtime >= bgTime)
-        {
-            float tmp = 255;
-            tmp -= Time.deltaTime;
-            bgImage.color = new Color(1, 1, 1, tmp);
-        }
+        test.GetComponent<SpriteRenderer>().color = _test;
     }
     private void Update()
     {
-        //PropBox();
+        _tmp += Time.deltaTime;
+        if (_tmp >= 0.5f)
+        {
+            print(123);
+            _tmp = 0;
+            _test.a -= 0.1f;
+        }
     }
 }

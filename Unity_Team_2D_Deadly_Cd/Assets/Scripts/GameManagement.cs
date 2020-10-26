@@ -25,7 +25,6 @@ public class GameManagement : MonoBehaviour
 
     private Player1 _player1Script = null;
     private Player2 _player2Script = null;
-    private GameStart _gameStart = null;
 
     #endregion
 
@@ -83,8 +82,6 @@ public class GameManagement : MonoBehaviour
     {
         _player1Script = FindObjectOfType<Player1>();
         _player2Script = FindObjectOfType<Player2>();
-        _gameStart = FindObjectOfType<GameStart>();
-        Destroy(_gameStart);
     }
     private void Update()
     {

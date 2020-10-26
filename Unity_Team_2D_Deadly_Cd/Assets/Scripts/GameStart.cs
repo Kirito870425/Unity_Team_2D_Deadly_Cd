@@ -22,7 +22,8 @@ public class GameStart : MonoBehaviour
         if (player1CheckBool && player2CheckBool)
         {
             Invoke("MainGameStart", 1f);
-            
+            player1CheckBool = false;
+            player2CheckBool = false;
         }
     }
     public void ProlongExit()
@@ -79,7 +80,6 @@ public class GameStart : MonoBehaviour
         {
             player2CheckBool = true;
             player2GO.SetActive(true);
-            
         }
     }
 

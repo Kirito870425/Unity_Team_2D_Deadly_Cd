@@ -22,6 +22,7 @@ public class GameStart : MonoBehaviour
         if (player1CheckBool && player2CheckBool)
         {
             Invoke("MainGameStart", 1f);
+            
         }
     }
     public void ProlongExit()

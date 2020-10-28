@@ -47,8 +47,7 @@ public class GameStart : MonoBehaviour
     }
     private void Change()
     {
-        if (!player2CheckBool)
-        {
+        
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 flowerRawImage.texture = flowerTexture;
@@ -57,9 +56,8 @@ public class GameStart : MonoBehaviour
             {
                 flowerRawImage.texture = treeTexture;
             }
-        }
-        if (!player1CheckBool)
-        {
+        
+        
             if (Input.GetKeyDown(KeyCode.D))
             {
                 treeRawImage.texture = treeTexture;
@@ -68,7 +66,7 @@ public class GameStart : MonoBehaviour
             {
                 treeRawImage.texture = flowerTexture;
             }
-        }
+        
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
